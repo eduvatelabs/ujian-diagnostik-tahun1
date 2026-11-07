@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex">
+<title>Status Pesanan – Eduvate Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<header class="hero" style="padding-bottom:80px">
+  <div class="brand"><img src="logo.png" alt="Eduvate Labs">EDUVATE LABS</div>
+  <h1 style="font-size:30px">Status Pesanan</h1>
+</header>
+<main class="wrap">
+  <section class="card center" id="checking">
+    <div class="spinner" aria-hidden="true"></div>
+    <h2>Menyemak pembayaran…</h2>
+    <p class="note">Jangan tutup halaman ini. Biasanya beberapa saat sahaja.</p>
+  </section>
+
+  <section class="card center hidden" id="paid">
+    <div class="big">🎉</div>
+    <h2 style="font-size:26px">Pembayaran berjaya!</h2>
+    <p class="note" id="hello">Terima kasih. Ini kod akses anda:</p>
+    <div class="code" id="code"></div>
+    <button class="btn ghost" id="copy" type="button">📋 Salin kod</button>
+    <a class="btn green" id="open" href="./">Buka Aplikasi Sekarang ➜</a>
+    <p class="note">Kod juga telah dihantar ke e-mel anda (semak folder Spam/Promosi). Kod aktif <b>30 hari</b> bermula kali pertama digunakan. Simpan kod ini.</p>
+  </section>
+
+  <section class="card center hidden" id="nocode">
+    <div class="big">🙏</div>
+    <h2>Pembayaran diterima</h2>
+    <p class="note">Kod anda sedang disediakan dan akan dihantar ke e-mel dalam masa terdekat. Penjual telah dimaklumkan. Pertanyaan: WhatsApp 011-1321 6254.</p>
+  </section>
+
+  <section class="card center hidden" id="pending">
+    <div class="big">⏳</div>
+    <h2>Pembayaran sedang diproses</h2>
+    <p class="note">Bank anda belum mengesahkan bayaran. Kod akan dihantar ke e-mel secara automatik sebaik bayaran disahkan. Anda juga boleh semak semula halaman ini.</p>
+    <button class="btn ghost" id="retry" type="button">🔄 Semak semula</button>
+  </section>
+
+  <section class="card center hidden" id="failed">
+    <div class="big">❌</div>
+    <h2>Pembayaran tidak berjaya</h2>
+    <p class="note">Tiada wang ditolak untuk transaksi yang gagal. Sila cuba sekali lagi.</p>
+    <a class="btn" href="kedai.html">Cuba bayar semula</a>
+  </section>
+
+  <section class="card center hidden" id="notfound">
+    <div class="big">🔍</div>
+    <h2>Pesanan tidak dijumpai</h2>
+    <p class="note">Pautan ini tidak lengkap. Jika anda telah membayar, sila semak e-mel atau WhatsApp 011-1321 6254.</p>
+    <a class="btn ghost" href="kedai.html">Ke kedai</a>
+  </section>
+
+  <p class="foot">© Eduvate Labs™ · Learn • Create • Empower</p>
+</main>
+<script src="config.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const API=(window.EDU_API||'').trim();
+const bill=new URLSearchParams(location.search).get('billcode')||'';
+const views=['checking','paid','nocode','pending','failed','notfound'];
+function show(v){views.forEach(x=>$(x).classList.toggle('hidden',x!==v));}
+let tries=0;
+async function check(){
+  if(!API||!bill){show('notfound');return;}
+  show('checking');
+  try{
+    const r=await fetch(API+'?action=status&billcode='+encodeURIComponent(bill));
+    const d=await r.json();
+    if(d.status==='paid'){
+      if(!d.code){show('nocode');return;}
+      $('code').textContent=d.code;
+      if(d.name) $('hello').textContent='Terima kasih, '+d.name+'. Ini kod akses anda:';
+      $('open').href='./?kod='+encodeURIComponent(d.code);
+      show('paid'); return;
+    }
+    if(d.status==='failed'){show('failed');return;}
+    if(d.status==='notfound'){show('notfound');return;}
+  }catch(e){}
+  if(++tries<12){ setTimeout(check,4000); } else { show('pending'); }
+}
+$('retry').onclick=()=>{tries=0;check();};
+$('copy').onclick=async()=>{
+  try{await navigator.clipboard.writeText($('code').textContent);$('copy').textContent='✓ Disalin';}
+  catch(e){$('copy').textContent='Tekan lama pada kod untuk salin';}
+};
+check();
+</script>
+</body>
+</html>

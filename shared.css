@@ -1,0 +1,44 @@
+:root{--navy:#0b1a4a;--blue:#4d46e5;--cyan:#22b8f0;--ink:#1d2350;--muted:#5d6488;--bg:#f3f5ff;--line:#e3e7f5;--ok:#1a9a5f;--okbg:#e3f9ee;--bad:#d93d42;--gold:#ffc93c;color-scheme:only light}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Baloo 2',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+a{color:var(--blue)}
+.hero{background:linear-gradient(135deg,#0b1a4a 0%,#2a2a9e 60%,#6b2fe0 100%);color:#fff;padding:22px 18px 90px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(34,184,240,.22);right:-90px;top:-110px}
+.hero::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,201,60,.16);left:-70px;bottom:-60px}
+.hero>*{position:relative;z-index:1}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.12em;font-size:13px;opacity:.9}
+.brand img{width:44px;height:44px;border-radius:50%;background:#fff}
+.hero h1{font-size:clamp(30px,8vw,44px);line-height:1;margin-top:16px;font-weight:800}
+.hero h1 span{display:block;color:var(--cyan);font-size:1.25em}
+.hero p{max-width:440px;margin:10px auto 0;font-weight:600;opacity:.9}
+.wrap{max-width:520px;margin:-66px auto 0;padding:0 14px 50px;position:relative;z-index:2}
+.card{background:#fff;border-radius:24px;padding:20px;box-shadow:0 10px 30px rgba(11,26,74,.12)}
+.price{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price .tag{background:var(--gold);color:var(--navy);font-weight:800;border-radius:99px;padding:3px 12px;font-size:13px}
+.price b{font-size:48px;line-height:1;color:var(--navy)}
+.price small{font-size:18px}
+.feat{list-style:none;margin:14px 0 4px;display:grid;gap:8px}
+.feat li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.feat li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--okbg);color:var(--ok);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chips span{font-weight:800;font-size:13px;border-radius:10px;padding:3px 10px;color:#fff}
+label{display:block;font-weight:700;font-size:14px;color:var(--muted);margin:12px 0 4px 4px}
+input{width:100%;font:inherit;font-size:17px;padding:11px 13px;border:2px solid var(--line);border-radius:14px;outline:none;color:var(--ink);background:#fff}
+input:focus{border-color:var(--blue)}
+.btn{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;border:none;border-radius:16px;padding:14px;font:inherit;font-weight:800;font-size:18px;color:#fff;background:linear-gradient(90deg,#4d46e5,#8b3dff);box-shadow:0 6px 0 #322c9e;cursor:pointer;text-decoration:none;margin-top:16px}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #322c9e}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.green{background:linear-gradient(90deg,#1fb36d,#22b8a0);box-shadow:0 6px 0 #138a52}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.err{color:var(--bad);font-weight:700;text-align:center;margin-top:10px;min-height:22px}
+.note{font-size:13px;color:var(--muted);font-weight:600;text-align:center;margin-top:12px;line-height:1.4}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px;text-align:center}
+.steps div{background:var(--bg);border-radius:14px;padding:8px 4px;font-size:12px;font-weight:700;color:var(--muted)}
+.steps b{display:block;font-size:20px}
+.foot{text-align:center;font-size:12px;color:var(--muted);margin-top:18px}
+.spinner{width:56px;height:56px;border-radius:50%;border:6px solid var(--line);border-top-color:var(--blue);animation:spin 1s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.code{font-size:28px;font-weight:800;letter-spacing:.06em;background:var(--bg);border:2px dashed #c7cdf0;border-radius:16px;padding:14px;text-align:center;margin:12px 0}
+.center{text-align:center}
+.big{font-size:64px;line-height:1}
+.hidden{display:none!important}
