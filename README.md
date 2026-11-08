@@ -17,7 +17,7 @@ Kuiz latihan interaktif untuk murid Tahun 1 oleh **Eduvate Labs™** (Learn • 
 - Pemasa 1 jam 30 minit, bacaan soalan (🔊), maklum balas segera, halaman keputusan dan semakan jawapan.
 
 ## Akses
-Kuiz ini memerlukan **kod akses** (format `EDU-XXXX-XXXX`) daripada Eduvate Labs. Setiap kod aktif selama **30 hari** dari kali pertama digunakan. Demo percuma (5 soalan) boleh dicuba tanpa kod.
+Kuiz ini memerlukan **kod akses** (format `EDU-XXXX-XXXX`) daripada Eduvate Labs. Setiap kod memberi akses **tanpa had masa**. Demo percuma (5 soalan) boleh dicuba tanpa kod.
 
 ## Pautan terus ke set
 - `.../#set-1`
