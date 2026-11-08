@@ -71,7 +71,7 @@ $('f').addEventListener('submit',async e=>{
   const name=$('name').value.trim(), email=$('email').value.trim(), phone=$('phone').value.trim();
   const err=$('err'); err.textContent='';
   if(name.length<2){err.textContent='Sila isi nama.';$('name').focus();return;}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Sila semak e-mel.';$('email').focus();return;}
+  if(!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(email)){err.textContent='E-mel tidak betul. Semak semula (cth: nama@gmail.com) – tiada koma atau ruang.';$('email').focus();return;}
   if(phone.replace(/\D/g,'').length<9){err.textContent='Sila semak no. telefon.';$('phone').focus();return;}
   const b=$('pay'); b.disabled=true; b.textContent='Menyediakan bayaran…';
   try{
@@ -79,6 +79,7 @@ $('f').addEventListener('submit',async e=>{
     const r=await fetch(API+'?'+q.toString());
     const d=await r.json();
     if(d.url){ location.href=d.url; return; }
+    if(d.error&&/mencipta bil/.test(d.error)) throw new Error('Bayaran tidak dapat disediakan. Sila semak e-mel & no. telefon, kemudian cuba lagi.');
     throw new Error(d.error||'Ralat tidak diketahui');
   }catch(x){
     err.textContent=(x&&x.message)||'Tidak dapat menyambung. Cuba lagi.';
