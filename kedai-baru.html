@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<title>Kedai Eduvate Labs – Ujian Diagnostik Tahun 1</title>
+<meta name="description" content="Kuiz interaktif Ujian Diagnostik Tahun 1: 3 set, 180 soalan. Hanya RM10, akses tanpa had masa.">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<meta property="og:title" content="Ujian Diagnostik Tahun 1 – RM10, akses tanpa had masa">
+<meta property="og:description" content="180 soalan latihan, 5 subjek, markah terus keluar. Cuba demo percuma.">
+<meta property="og:image" content="https://eduvatelabs.github.io/ujian-diagnostik-tahun1/img/poster-risau.jpg">
+<style>
+.hero{padding-bottom:96px}
+.hero .who{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:3px 14px;font-weight:700;font-size:13px;margin-top:14px}
+.hero h1{font-size:clamp(28px,7.4vw,40px);line-height:1.08}
+.hero h1 span{color:var(--gold);font-size:1.05em;margin-top:4px}
+.cta2{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;margin:18px auto 0}
+.cta2 .btn{margin:0;font-size:16px;padding:12px 8px}
+.btn.gold{background:var(--gold);color:var(--navy);box-shadow:0 6px 0 #c9921a}
+.hero small{display:block;margin-top:10px;font-weight:600;opacity:.8;font-size:13px}
+.sec{margin-top:26px}
+.sec h2{font-size:24px;line-height:1.15;color:var(--navy)}
+.sec .lead{color:var(--muted);font-weight:600;margin-top:4px;line-height:1.4}
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 4px 10px;margin:0 -14px;padding-left:14px;scrollbar-width:none}
+.shots::-webkit-scrollbar{display:none}
+.shot{flex:0 0 68%;max-width:260px;scroll-snap-align:center;background:#fff;border-radius:20px;padding:8px;box-shadow:0 8px 22px rgba(11,26,74,.12)}
+.shot img{width:100%;display:block;border-radius:14px;aspect-ratio:9/15;object-fit:cover;object-position:top;background:#f7f2ea}
+.shot b{display:inline-block;color:#fff;border-radius:99px;padding:1px 10px;font-size:13px;margin:8px 4px 2px}
+.shot p{font-size:14px;font-weight:600;color:var(--ink);padding:0 4px 4px;line-height:1.35}
+.swipe{text-align:center;font-size:13px;font-weight:700;color:var(--muted)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.duo figure{background:#fff;border-radius:18px;padding:8px;box-shadow:0 8px 22px rgba(11,26,74,.1)}
+.duo img{width:100%;display:block;border-radius:12px}
+.duo figcaption{font-size:13px;font-weight:700;color:var(--muted);text-align:center;margin-top:6px;line-height:1.3}
+.about{display:flex;gap:14px;align-items:center}
+.about img{width:72px;height:72px;border-radius:50%;flex:none;background:#fff;box-shadow:0 0 0 4px #e9e7ff}
+.about h3{font-size:20px;line-height:1.1;color:var(--navy)}
+.about span{font-size:13px;font-weight:700;color:var(--blue)}
+.cred{list-style:none;display:grid;gap:10px;margin-top:14px}
+.cred li{display:flex;gap:12px;align-items:center;background:var(--bg);border-radius:14px;padding:10px 12px;font-weight:700;line-height:1.3}
+.cred i{font-style:normal;font-size:22px;flex:none}
+.quote{margin-top:14px;border-left:4px solid var(--gold);padding:4px 12px;font-weight:600;color:var(--muted);font-style:italic;line-height:1.45}
+details{background:#fff;border-radius:16px;padding:12px 16px;margin-top:10px;box-shadow:0 4px 14px rgba(11,26,74,.07)}
+summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--blue)}
+details[open] summary::after{content:"–"}
+details p{margin-top:8px;color:var(--muted);font-weight:600;line-height:1.45}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;box-shadow:0 -6px 20px rgba(11,26,74,.15);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transition:transform .25s}
+.sticky.off{transform:translateY(120%)}
+.sticky div{flex:1;line-height:1.1}
+.sticky b{font-size:24px;color:var(--navy)}
+.sticky small{display:block;font-size:12px;font-weight:700;color:var(--muted)}
+.sticky .btn{margin:0;width:auto;padding:11px 22px;font-size:17px}
+main.wrap{padding-bottom:110px}
+.award{margin-top:14px}.award img{width:100%;display:block;border-radius:14px}.award figcaption{font-size:13px;font-weight:700;color:var(--muted);text-align:center;margin-top:6px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="brand"><img src="logo.png" alt="Eduvate Labs">EDUVATE LABS</div>
+  <div><span class="who">👨‍👩‍👦 Untuk ibu bapa anak bakal Tahun 1</span></div>
+  <h1>Takut anak tercicir masa <span>Ujian Diagnostik <nobr>Tahun 1?</nobr></span></h1>
+  <p>Semak dulu di rumah. 180 soalan latihan, 5 subjek, markah terus keluar.</p>
+  <div class="cta2">
+    <a class="btn green" href="./">🎁 Cuba Demo</a>
+    <a class="btn gold" href="#buyCard">Beli · RM10</a>
+  </div>
+  <small>Demo 5 soalan percuma · tiada pendaftaran</small>
+</header>
+<main class="wrap">
+  <section class="card">
+    <div class="price">
+      <div><span class="tag">PROMOSI PELANCARAN</span><div style="font-weight:700;color:var(--muted);margin-top:6px">Akses tanpa had masa · 3 set soalan</div></div>
+      <b><small>RM</small>10</b>
+    </div>
+    <ul class="feat">
+      <li>3 set soalan · 180 soalan · 100 markah setiap set</li>
+      <li>Soalan dibacakan dengan suara, anak seret &amp; pilih jawapan</li>
+      <li>Markah terus keluar + senarai soalan yang perlu diulang</li>
+      <li>Kod dihantar automatik selepas bayaran</li>
+    </ul>
+    <div class="chips">
+      <span style="background:#ff6b6b">BM</span><span style="background:#4d96ff">BI</span><span style="background:#e09a00">Matematik</span><span style="background:#1fa868">Sains</span><span style="background:#9b5de5">Jawi</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Lihat sendiri apa anak akan jawab 👀</h2>
+    <p class="lead">Seronok macam main game, tapi setiap soalan ikut kemahiran asas Tahun 1.</p>
+    <div class="shots">
+      <figure class="shot"><img src="img/ss-bm.jpg" alt="Soalan Bahasa Melayu: cantum suku kata" loading="lazy"><b style="background:#ff6b6b">Bahasa Melayu</b><p>Cantum suku kata. Soalan dibacakan, anak dengar &amp; pilih.</p></figure>
+      <figure class="shot"><img src="img/ss-bi.jpg" alt="Soalan Bahasa Inggeris: seret huruf" loading="lazy"><b style="background:#4d96ff">Bahasa Inggeris</b><p>Seret huruf ke kotak. Anak belajar sambil bermain.</p></figure>
+      <figure class="shot"><img src="img/ss-mt.jpg" alt="Soalan Matematik: nombor yang hilang" loading="lazy"><b style="background:#e09a00">Matematik</b><p>Kenal nombor, kiraan &amp; susunan nombor.</p></figure>
+      <figure class="shot"><img src="img/ss-sn.jpg" alt="Soalan Sains: fungsi anggota badan" loading="lazy"><b style="background:#1fa868">Sains</b><p>Kenal anggota badan &amp; fungsinya.</p></figure>
+      <figure class="shot"><img src="img/ss-jw.jpg" alt="Soalan Jawi: huruf yang hilang" loading="lazy"><b style="background:#9b5de5">Jawi</b><p>Kenal huruf Jawi, baca dari kanan ke kiri.</p></figure>
+    </div>
+    <p class="swipe">← leret untuk lihat subjek lain →</p>
+  </section>
+
+  <section class="sec">
+    <h2>Terus tahu tahap anak 📊</h2>
+    <p class="lead">Selepas tamat, ibu bapa nampak markah setiap subjek dan soalan mana yang anak perlu ulang.</p>
+    <div class="duo">
+      <figure><img src="img/ss-markah.jpg" alt="Keputusan: markah 96/100" loading="lazy"><figcaption>Markah &amp; tahap terus keluar</figcaption></figure>
+      <figure><img src="img/ss-semak.jpg" alt="Senarai soalan yang perlu diulang" loading="lazy"><figcaption>Nampak soalan yang perlu diulang</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="card sec">
+    <figure class="award" style="margin:0 0 14px"><img src="img/anugerah.jpg" alt="Cikgu Izzuwan Isa menerima anugerah Best of Best Innovation, First Innovation Day 2025 UTM"><figcaption>🏆 Anugerah inovasi pendidikan, First Innovation Day 2025, UTM</figcaption></figure>
+    <div class="about">
+      <div><span>DIBINA OLEH GURU, UNTUK IBU BAPA</span><h3>Cikgu Izzuwan Isa</h3><span style="color:var(--muted)">Pengasas Eduvate Labs</span></div>
+    </div>
+    <ul class="cred">
+      <li><i>👨‍🏫</i>Guru sekolah rendah, lebih 10 tahun pengalaman mengajar</li>
+      <li><i>🎓</i>Sedang melanjutkan pengajian Sarjana (Master) Teknologi Pendidikan</li>
+      <li><i>🎖️</i>Penerima Biasiswa Hadiah Tajaan Pendidikan Kementerian Pendidikan Malaysia (KPM)</li>
+      <li><i>🏆</i>Gold Award &amp; Best of Best Innovation Award, First Innovation Day 2025 (UTM)</li>
+      <li><i>✅</i>Setiap soalan disemak oleh guru Tahun 1 berpengalaman</li>
+    </ul>
+    <p class="quote">"Saya bina aplikasi ini supaya ibu bapa dapat tahu tahap anak lebih awal, bukan selepas keputusan keluar."</p>
+  </section>
+
+  <section class="sec">
+    <h2>Soalan lazim</h2>
+    <details><summary>Perlu muat turun app?</summary><p>Tidak perlu. Buka terus di browser telefon, tablet atau komputer.</p></details>
+    <details><summary>Bila saya dapat kod?</summary><p>Serta-merta selepas bayaran FPX berjaya. Kod dipaparkan di skrin dan dihantar ke e-mel anda.</p></details>
+    <details><summary>Boleh ulang berapa kali?</summary><p>Akses tanpa had masa. Anak boleh ulang ketiga-tiga set bila-bila masa.</p></details>
+    <details><summary>Berapa lama satu set?</summary><p>Setiap set ada pemasa 1 jam 30 minit dengan jumlah 100 markah.</p></details>
+    <details><summary>Ini ujian rasmi KPM?</summary><p>Bukan. Ini bahan latihan untuk persediaan anak di rumah.</p></details>
+  </section>
+
+  <section class="card sec" id="buyCard">
+    <h2 style="font-size:22px">Dapatkan akses penuh · RM10</h2>
+    <form id="f" novalidate>
+      <label for="name">Nama</label>
+      <input id="name" autocomplete="name" placeholder="cth: Aminah binti Ali" maxlength="60" required>
+      <label for="email">E-mel (kod akan dihantar ke sini)</label>
+      <input id="email" type="email" autocomplete="email" inputmode="email" placeholder="cth: aminah@gmail.com" required>
+      <label for="phone">No. telefon</label>
+      <input id="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="cth: 012-345 6789" required>
+      <button class="btn" id="pay" type="submit">Bayar RM10 dengan FPX 🔒</button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+    <div class="steps"><div><b>①</b>Isi maklumat</div><div><b>②</b>Bayar FPX</div><div><b>③</b>Terima kod</div></div>
+    <p class="note">Pembayaran diproses oleh ToyyibPay. Kod dipaparkan sebaik bayaran berjaya dan dihantar ke e-mel anda.</p>
+  </section>
+
+  <section class="card hidden" style="margin-top:14px" id="waCard">
+    <h2 style="font-size:22px">Tempah melalui WhatsApp</h2>
+    <p class="note" style="text-align:left">Pembayaran dalam talian akan dibuka tidak lama lagi. Buat masa ini, tempah kod terus melalui WhatsApp.</p>
+    <a class="btn green" id="waBtn" href="#" target="_blank" rel="noopener">💬 Tempah via WhatsApp</a>
+    <p class="note">WhatsApp: 011-1321 6254</p>
+  </section>
+
+  <a class="btn ghost" href="./" style="margin-top:14px">🎁 Cuba demo percuma dahulu</a>
+  <a class="btn ghost" id="askWa" href="#" target="_blank" rel="noopener" style="margin-top:12px">💬 Ada soalan? WhatsApp kami</a>
+  <p class="foot">© Eduvate Labs™ · Learn • Create • Empower<br>Bahan latihan, bukan ujian rasmi KPM.</p>
+</main>
+<div class="sticky" id="sticky"><div><b>RM10</b><small>Tanpa had masa · 180 soalan</small></div><a class="btn" href="#buyCard">Beli Sekarang</a></div>
+<script src="config.js?v=20261108b"></script>
+<script>
+const $=id=>document.getElementById(id);
+const API=(window.EDU_API||'').trim();
+const msg=encodeURIComponent('Salam, saya nak beli kod akses Ujian Diagnostik Tahun 1 (RM10)');
+$('waBtn').href='https://wa.me/'+(window.EDU_WA||'')+'?text='+msg;
+if(!API){ $('buyCard').classList.add('hidden'); $('waCard').classList.remove('hidden'); }
+
+$('f').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('name').value.trim(), email=$('email').value.trim(), phone=$('phone').value.trim();
+  const err=$('err'); err.textContent='';
+  if(name.length<2){err.textContent='Sila isi nama.';$('name').focus();return;}
+  if(!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(email)){err.textContent='E-mel tidak betul. Semak semula (cth: nama@gmail.com) – tiada koma atau ruang.';$('email').focus();return;}
+  if(phone.replace(/\D/g,'').length<9){err.textContent='Sila semak no. telefon.';$('phone').focus();return;}
+  const b=$('pay'); b.disabled=true; b.textContent='Menyediakan bayaran…';
+  try{
+    const q=new URLSearchParams({action:'create',name,email,phone});
+    const r=await fetch(API+'?'+q.toString());
+    const d=await r.json();
+    if(d.url){ location.href=d.url; return; }
+    if(d.error&&/mencipta bil/.test(d.error)) throw new Error('Bayaran tidak dapat disediakan. Sila semak e-mel & no. telefon, kemudian cuba lagi.');
+    throw new Error(d.error||'Ralat tidak diketahui');
+  }catch(x){
+    err.textContent=(x&&x.message)||'Tidak dapat menyambung. Cuba lagi.';
+    b.disabled=false; b.textContent='Bayar RM10 dengan FPX 🔒';
+  }
+});
+</script>
+<script>
+(function(){
+  var wa=document.getElementById('askWa');
+  wa.href='https://wa.me/'+(window.EDU_WA||'')+'?text='+encodeURIComponent('Salam Cikgu, saya ada soalan tentang Ujian Diagnostik Tahun 1');
+  var st=document.getElementById('sticky');
+  var tgt=document.getElementById(document.getElementById('buyCard').classList.contains('hidden')?'waCard':'buyCard');
+  var hero=document.querySelector('.hero');
+  var vis={buy:false,hero:true};
+  function upd(){ st.classList.toggle('off', vis.buy||vis.hero); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){vis.buy=e[0].isIntersecting;upd();}).observe(tgt);
+    new IntersectionObserver(function(e){vis.hero=e[0].isIntersecting;upd();}).observe(hero);
+  }
+  st.querySelector('a').href='#'+tgt.id;
+  document.querySelectorAll('a[href="#buyCard"]').forEach(function(a){a.href='#'+tgt.id;});
+  upd();
+})();
+</script>
+</body>
+</html>
