@@ -191,7 +191,7 @@ main.wrap{padding-bottom:110px}
 const $=id=>document.getElementById(id);
 const API=(window.EDU_API||'').trim();
 function track(ev,v){ try{ if(!API) return; let sid=sessionStorage.getItem('edu_sid'); if(!sid){sid=Math.random().toString(36).slice(2,10); sessionStorage.setItem('edu_sid',sid);}
-  fetch(API+'?action=track&ev='+ev+'&v='+encodeURIComponent(v||'')+'&pg=kedai&sid='+sid+'&ref='+encodeURIComponent((document.referrer||'').slice(0,80)),{mode:'no-cors',keepalive:true}).catch(()=>{}); }catch(e){} }
+  fetch(API+'?action=track&ev='+ev+'&v='+encodeURIComponent(v||'')+'&pg=kedai&s='+sid+'&ref='+encodeURIComponent((document.referrer||'').slice(0,80)),{mode:'no-cors',keepalive:true}).catch(()=>{}); }catch(e){} }
 track('kedai_buka', new URLSearchParams(location.search).get('utm_source')||'');
 document.addEventListener('click',e=>{ const a=e.target.closest('[data-ev]'); if(a) track(a.dataset.ev); });
 const msg=encodeURIComponent('Salam, saya nak beli kod akses Ujian Diagnostik Tahun 1 (RM10)');
