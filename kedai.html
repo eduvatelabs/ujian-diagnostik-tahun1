@@ -54,6 +54,18 @@ details p{margin-top:8px;color:var(--muted);font-weight:600;line-height:1.45}
 .sticky b{font-size:24px;color:var(--navy)}
 .sticky small{display:block;font-size:12px;font-weight:700;color:var(--muted)}
 .sticky .btn{margin:0;width:auto;padding:11px 22px;font-size:17px}
+.rep{position:relative;background:#fff;border-radius:22px;padding:18px 16px;margin-top:14px;box-shadow:0 10px 26px rgba(11,26,74,.13);border:2px solid #ece8ff}
+.rep-tag{position:absolute;top:-11px;right:16px;background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;border-radius:99px;padding:3px 10px}
+.rep-head{display:flex;justify-content:space-between;align-items:center}.rep-head b{font-size:22px;color:var(--navy);display:block}.rep-head small{color:var(--muted);font-weight:600}
+.rep-score{font-size:40px;font-weight:800;color:var(--blue);line-height:1}.rep-score small{font-size:16px;color:var(--muted)}
+.rep-lv{color:#ffb020;font-size:20px;margin-top:4px}.rep-lv span{color:var(--navy);font-size:16px;font-weight:800;margin-left:6px}
+.rep-h{font-weight:800;color:var(--navy);margin:14px 0 4px;font-size:16px}
+.rep .sk{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dashed #e6e2f3;font-weight:700;font-size:15px}
+.rep .sk i{font-style:normal;font-size:12px;font-weight:800;border-radius:99px;padding:3px 9px;flex:none}
+.rep .ok{color:#1d8a55;background:#e3f7ec}.rep .mid{color:#a86d00;background:#fff2d6}.rep .low{color:#c43c3c;background:#ffe3e3}
+.rep .sk.more{color:var(--muted);font-size:13px;justify-content:center;border:0}
+.rep .tipc{background:#fff8e6;border:2px solid #ffd77a;border-radius:14px;padding:10px 12px;margin-top:8px;font-weight:600;font-size:14px;line-height:1.4}
+.rep .tipc b{display:block;color:var(--navy)}
 main.wrap{padding-bottom:110px}
 .award{margin-top:14px}.award img{width:100%;display:block;border-radius:14px}.award figcaption{font-size:13px;font-weight:700;color:var(--muted);text-align:center;margin-top:6px}
 </style>
@@ -63,12 +75,12 @@ main.wrap{padding-bottom:110px}
   <div class="brand"><img src="logo.png" alt="Eduvate Labs">EDUVATE LABS</div>
   <div><span class="who">👨‍👩‍👦 Untuk ibu bapa anak bakal Tahun 1</span></div>
   <h1>Takut anak tercicir masa <span>Ujian Diagnostik <nobr>Tahun 1?</nobr></span></h1>
-  <p>Semak dulu di rumah. 180 soalan latihan, 5 subjek, markah terus keluar.</p>
+  <p>Semak dulu di rumah. 180 soalan, 5 subjek, dan Laporan Prestasi yang tunjuk apa anak perlu belajar.</p>
   <div class="cta2">
-    <a class="btn green" href="./">🎁 Cuba Demo</a>
-    <a class="btn gold" href="#buyCard">Beli · RM10</a>
+    <a class="btn green" href="./?demo=1" data-ev="klik_demo">🎁 Cuba Demo</a>
+    <a class="btn gold" href="#buyCard" data-ev="klik_beli">Beli · RM10</a>
   </div>
-  <small>Demo 5 soalan percuma · tiada pendaftaran</small>
+  <small>Demo 20 soalan percuma · tiada pendaftaran</small>
 </header>
 <main class="wrap">
   <section class="card">
@@ -79,7 +91,7 @@ main.wrap{padding-bottom:110px}
     <ul class="feat">
       <li>3 set soalan · 180 soalan · 100 markah setiap set</li>
       <li>Ada butang 🔊 untuk dengar soalan, anak seret &amp; pilih jawapan</li>
-      <li>Markah terus keluar + senarai soalan yang perlu diulang</li>
+      <li>Laporan Prestasi: status 12 kemahiran + cadangan latihan di rumah</li>
       <li>Kod dihantar automatik selepas bayaran</li>
     </ul>
     <div class="chips">
@@ -101,12 +113,25 @@ main.wrap{padding-bottom:110px}
   </section>
 
   <section class="sec">
-    <h2>Terus tahu tahap anak 📊</h2>
-    <p class="lead">Selepas tamat, ibu bapa nampak markah setiap subjek dan soalan mana yang anak perlu ulang.</p>
-    <div class="duo">
-      <figure><img src="img/ss-markah.jpg" alt="Keputusan: markah 96/100" loading="lazy"><figcaption>Markah &amp; tahap terus keluar</figcaption></figure>
-      <figure><img src="img/ss-semak.jpg" alt="Senarai soalan yang perlu diulang" loading="lazy"><figcaption>Nampak soalan yang perlu diulang</figcaption></figure>
+    <h2>Laporan Prestasi Anak 📋</h2>
+    <p class="lead">Bukan sekadar markah. Ibu bapa tahu kemahiran mana yang anak dah kuasai, mana yang lemah, dan apa nak buat di rumah.</p>
+    <div class="rep">
+      <div class="rep-tag">CONTOH LAPORAN</div>
+      <div class="rep-head"><div><b>Aisyah</b><small>Set 1 · Ujian Diagnostik Tahun 1</small></div><div class="rep-score">74<small>/100</small></div></div>
+      <div class="rep-lv">★★★★☆ <span>Baik 👍</span></div>
+      <div class="rep-h">Status kemahiran</div>
+      <div class="sk"><span>📚 Kenal huruf</span><i class="ok">✅ Dikuasai</i></div>
+      <div class="sk"><span>📚 Suku kata</span><i class="mid">⚠️ Hampir</i></div>
+      <div class="sk"><span>📚 Lengkapkan ayat</span><i class="low">❌ Perlu latihan</i></div>
+      <div class="sk"><span>🔢 Tambah</span><i class="ok">✅ Dikuasai</i></div>
+      <div class="sk"><span>🔬 Benda hidup &amp; bukan hidup</span><i class="ok">✅ Dikuasai</i></div>
+      <div class="sk"><span>✒️ Kenal huruf Jawi</span><i class="low">❌ Perlu latihan</i></div>
+      <div class="sk more">+ 6 kemahiran lagi</div>
+      <div class="rep-h">💡 Cadangan latihan di rumah</div>
+      <div class="tipc"><b>📚 Lengkapkan ayat</b>Baca buku cerita pendek bersama. Tutup satu perkataan dan minta anak teka perkataan yang sesuai.</div>
+      <div class="tipc"><b>✒️ Kenal huruf Jawi</b>Tunjuk kad huruf Jawi dan minta anak sebut namanya. Belajar 3 hingga 5 huruf sehari.</div>
     </div>
+    <p class="swipe" style="margin-top:10px">🎁 Cuba demo percuma untuk dapat laporan mini anak anda sendiri</p>
   </section>
 
   <section class="card sec">
@@ -156,15 +181,19 @@ main.wrap{padding-bottom:110px}
     <p class="note">WhatsApp: 011-1321 6254</p>
   </section>
 
-  <a class="btn ghost" href="./" style="margin-top:14px">🎁 Cuba demo percuma dahulu</a>
-  <a class="btn ghost" id="askWa" href="#" target="_blank" rel="noopener" style="margin-top:12px">💬 Ada soalan? WhatsApp kami</a>
+  <a class="btn ghost" href="./?demo=1" data-ev="klik_demo" style="margin-top:14px">🎁 Cuba demo percuma dahulu</a>
+  <a class="btn ghost" id="askWa" data-ev="klik_wa" href="#" target="_blank" rel="noopener" style="margin-top:12px">💬 Ada soalan? WhatsApp kami</a>
   <p class="foot">© Eduvate Labs™ · Learn • Create • Empower<br>Bahan latihan, bukan ujian rasmi KPM.</p>
 </main>
-<div class="sticky" id="sticky"><div><b>RM10</b><small>Tanpa had masa · 180 soalan</small></div><a class="btn" href="#buyCard">Beli Sekarang</a></div>
+<div class="sticky" id="sticky"><div><b>RM10</b><small>Tanpa had masa · 180 soalan</small></div><a class="btn" href="#buyCard" data-ev="klik_beli">Beli Sekarang</a></div>
 <script src="config.js?v=20261108b"></script>
 <script>
 const $=id=>document.getElementById(id);
 const API=(window.EDU_API||'').trim();
+function track(ev,v){ try{ if(!API) return; let sid=sessionStorage.getItem('edu_sid'); if(!sid){sid=Math.random().toString(36).slice(2,10); sessionStorage.setItem('edu_sid',sid);}
+  fetch(API+'?action=track&ev='+ev+'&v='+encodeURIComponent(v||'')+'&pg=kedai&sid='+sid+'&ref='+encodeURIComponent((document.referrer||'').slice(0,80)),{mode:'no-cors',keepalive:true}).catch(()=>{}); }catch(e){} }
+track('kedai_buka', new URLSearchParams(location.search).get('utm_source')||'');
+document.addEventListener('click',e=>{ const a=e.target.closest('[data-ev]'); if(a) track(a.dataset.ev); });
 const msg=encodeURIComponent('Salam, saya nak beli kod akses Ujian Diagnostik Tahun 1 (RM10)');
 $('waBtn').href='https://wa.me/'+(window.EDU_WA||'')+'?text='+msg;
 if(!API){ $('buyCard').classList.add('hidden'); $('waCard').classList.remove('hidden'); }
@@ -176,6 +205,7 @@ $('f').addEventListener('submit',async e=>{
   if(name.length<2){err.textContent='Sila isi nama.';$('name').focus();return;}
   if(!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(email)){err.textContent='E-mel tidak betul. Semak semula (cth: nama@gmail.com) – tiada koma atau ruang.';$('email').focus();return;}
   if(phone.replace(/\D/g,'').length<9){err.textContent='Sila semak no. telefon.';$('phone').focus();return;}
+  track('klik_bayar');
   const b=$('pay'); b.disabled=true; b.textContent='Menyediakan bayaran…';
   try{
     const q=new URLSearchParams({action:'create',name,email,phone});
