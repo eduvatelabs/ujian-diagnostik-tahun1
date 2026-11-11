@@ -68,6 +68,24 @@ details p{margin-top:8px;color:var(--muted);font-weight:600;line-height:1.45}
 .rep .tipc b{display:block;color:var(--navy)}
 main.wrap{padding-bottom:110px}
 .award{margin-top:14px}.award img{width:100%;display:block;border-radius:14px}.award figcaption{font-size:13px;font-weight:700;color:var(--muted);text-align:center;margin-top:6px}
+.demo-big{display:block;max-width:440px;margin:18px auto 0;font-size:20px;padding:16px 10px;line-height:1.15}
+.demo-big small{display:block;font-size:13px;font-weight:700;opacity:.9;margin-top:4px}
+.buy-link{display:inline-block;margin-top:12px;color:#fff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.perks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:14px}
+.perks span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:4px 11px;font-size:13px;font-weight:700}
+.old{font-size:20px;color:var(--muted);text-decoration:line-through;font-weight:800;margin-right:6px}
+.vs{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(11,26,74,.1);font-size:14px}
+.vs th,.vs td{padding:10px 8px;text-align:center;border-bottom:1px solid #eee9f7;font-weight:700}
+.vs th{background:var(--navy);color:#fff;font-size:14px}
+.vs th.us{background:var(--blue)}
+.vs td:first-child{text-align:left;color:var(--ink)}
+.vs td.us{background:#f1f5ff}
+.vs tr:last-child td{border-bottom:0}
+.vs .n{color:#c43c3c}.vs .y{color:#1d8a55}
+.sticky .btn{padding:11px 16px}.sticky .btn.green{font-size:15px}
+.vid{margin:18px auto 0;width:min(52%,200px)}
+.vid video{width:100%;display:block;border-radius:24px;border:5px solid #fff;box-shadow:0 14px 30px rgba(0,0,0,.35);background:#fff;aspect-ratio:540/1172}
+.vid figcaption{font-size:13px;font-weight:700;opacity:.85;margin-top:8px}
 </style>
 </head>
 <body>
@@ -76,17 +94,16 @@ main.wrap{padding-bottom:110px}
   <div><span class="who">👨‍👩‍👦 Untuk ibu bapa anak bakal Tahun 1</span></div>
   <h1>Takut anak tercicir masa <span>Ujian Diagnostik <nobr>Tahun 1?</nobr></span></h1>
   <p>Semak dulu di rumah. 180 soalan, 5 subjek, dan Laporan Prestasi yang tunjuk apa anak perlu belajar.</p>
-  <div class="cta2">
-    <a class="btn green" href="./?demo=1" data-ev="klik_demo">🎁 Cuba Demo</a>
-    <a class="btn gold" href="#buyCard" data-ev="klik_beli">Beli · RM10</a>
-  </div>
-  <small>Demo 20 soalan percuma · tiada pendaftaran</small>
+  <a class="btn green demo-big" href="./?demo=1" data-ev="klik_demo">🎁 Cuba Demo Percuma<small>20 soalan · ±5 minit · dapat laporan mini anak</small></a>
+  <figure class="vid"><video src="img/demo.mp4" poster="img/demo-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption>▶ Begini anak jawab di telefon</figcaption></figure>
+  <div class="perks"><span>🖨️ Tak perlu cetak</span><span>✅ Markah automatik</span><span>📋 Laporan kemahiran</span></div>
+  <a class="buy-link" href="#buyCard" data-ev="klik_beli">Terus beli · RM10 →</a>
 </header>
 <main class="wrap">
   <section class="card">
     <div class="price">
-      <div><span class="tag">PROMOSI PELANCARAN</span><div style="font-weight:700;color:var(--muted);margin-top:6px">Akses tanpa had masa · 3 set soalan</div></div>
-      <b><small>RM</small>10</b>
+      <div><span class="tag">HARGA PELANCARAN</span><div style="font-weight:700;color:var(--muted);margin-top:6px">Akses tanpa had masa · 3 set soalan</div></div>
+      <b><span class="old">RM19</span><small>RM</small>10</b>
     </div>
     <ul class="feat">
       <li>3 set soalan · 180 soalan · 100 markah setiap set</li>
@@ -97,6 +114,20 @@ main.wrap{padding-bottom:110px}
     <div class="chips">
       <span style="background:#ff6b6b">BM</span><span style="background:#4d96ff">BI</span><span style="background:#e09a00">Matematik</span><span style="background:#1fa868">Sains</span><span style="background:#9b5de5">Jawi</span>
     </div>
+  </section>
+
+  <section class="sec">
+    <h2>Kertas PDF vs App ini 🤔</h2>
+    <p class="lead">Kertas latihan bagus, tapi ibu bapa perlu cetak, semak dan teka sendiri anak lemah di mana.</p>
+    <table class="vs">
+      <tr><th></th><th>Kertas PDF</th><th class="us">App Eduvate</th></tr>
+      <tr><td>Perlu cetak</td><td class="n">Ya 🖨️</td><td class="us y">Tidak</td></tr>
+      <tr><td>Semak jawapan</td><td class="n">Ibu bapa semak</td><td class="us y">Automatik ⚡</td></tr>
+      <tr><td>Soalan dibacakan</td><td class="n">✗</td><td class="us y">🔊 Ya</td></tr>
+      <tr><td>Tahu kemahiran lemah</td><td class="n">Teka sendiri</td><td class="us y">Laporan 12 kemahiran</td></tr>
+      <tr><td>Cadangan latihan</td><td class="n">✗</td><td class="us y">💡 Ya</td></tr>
+      <tr><td>Masa ibu bapa</td><td class="n">±30 minit</td><td class="us y">1 minit</td></tr>
+    </table>
   </section>
 
   <section class="sec">
@@ -185,7 +216,7 @@ main.wrap{padding-bottom:110px}
   <a class="btn ghost" id="askWa" data-ev="klik_wa" href="#" target="_blank" rel="noopener" style="margin-top:12px">💬 Ada soalan? WhatsApp kami</a>
   <p class="foot">© Eduvate Labs™ · Learn • Create • Empower<br>Bahan latihan, bukan ujian rasmi KPM.</p>
 </main>
-<div class="sticky" id="sticky"><div><b>RM10</b><small>Tanpa had masa · 180 soalan</small></div><a class="btn" href="#buyCard" data-ev="klik_beli">Beli Sekarang</a></div>
+<div class="sticky" id="sticky"><div><b>RM10</b><small><s>RM19</s> · harga pelancaran</small></div><a class="btn green" href="./?demo=1" data-ev="klik_demo">🎁 Demo</a><a class="btn" href="#buyCard" data-ev="klik_beli">Beli</a></div>
 <script src="config.js?v=20261108b"></script>
 <script>
 const $=id=>document.getElementById(id);
